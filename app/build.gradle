@@ -24,6 +24,10 @@ android {
 }
 
 dependencies {
+    def room_version = "2.2.5"
+    def lifecycle_version = "2.2.0"
+    def version_material = "1.0.0"
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -31,6 +35,26 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+    implementation 'com.github.amlcurran.showcaseview:library:5.4.3'
+    implementation 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.0'
+    implementation 'com.sothree.slidinguppanel:library:3.3.1'
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+    //lifecycle-compiler
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    // Material Design
+    implementation "com.google.android.material:material:$version_material"
+
+
+
+
 
 
 

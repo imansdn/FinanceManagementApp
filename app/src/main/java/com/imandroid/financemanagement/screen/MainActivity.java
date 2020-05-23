@@ -1,8 +1,10 @@
-package com.imandroid.financemanagement;
+package com.imandroid.financemanagement.screen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.imandroid.financemanagement.R;
 
 public class MainActivity extends AppCompatActivity {
 

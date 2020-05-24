@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class TextHelper {
 
-    public String getDateReadable(Date now,String date) {
+    public static String getDateReadable(Date now,String date) {
         String resultDate = "";
         try {
             Date formattedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").parse(date);

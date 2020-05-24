@@ -20,32 +20,29 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/daily_toggle"
+            android:id="@+id/btn_daily"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
-            android:onClick="onClickChangeTab"
             android:text="Daily"
             android:textSize="15dp" />
 
         <Button
-            android:id="@+id/weekly_toggle"
+            android:id="@+id/btn_weekly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
-            android:onClick="onClickChangeTab"
             android:text="Weekly"
             android:textSize="15dp" />
 
         <Button
-            android:id="@+id/monthly_toggle"
+            android:id="@+id/btn_monthly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
-            android:onClick="onClickChangeTab"
             android:text="Monthly"
             android:textSize="15dp" />
 
@@ -56,14 +53,36 @@
         android:layout_width="0dp"
         android:layout_height="300dp"
 
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_new_record"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggle_parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/budget_button"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
+        android:layout_centerInParent="true"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/chart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/chart"
+        app:layout_constraintTop_toTopOf="@+id/chart" />
+
+    <Button
+        android:id="@+id/btn_new_record"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:text="Add Expense"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toggle_parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

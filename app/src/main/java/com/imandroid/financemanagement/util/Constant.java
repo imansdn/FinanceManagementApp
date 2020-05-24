@@ -8,6 +8,11 @@ public class Constant {
         ,Food
         ,Transport
         ,Others}
+    public enum TIME_PERIOD {
+         DAILY
+        ,WEEKLY
+        ,MONTHLY
+     }
 
 
 }

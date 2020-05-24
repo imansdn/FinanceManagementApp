@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">FinanceManagement</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_cost">Not a valid cost</string>
+    <string name="invalid_desc">Please insert a short description</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="budget_exceeded">BUDGET EXCEEDED</string>
+    <string name="confirm">Confirm</string>
+    <string name="budget_changes">Budgets changed</string>
+    <string name="the_budget_must_be_filled">The budgets must be filled in!</string>
+    <string name="cancel">Cancel</string>
 </resources>

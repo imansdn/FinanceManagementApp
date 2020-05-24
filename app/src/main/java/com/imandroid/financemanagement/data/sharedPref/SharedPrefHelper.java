@@ -1,13 +1,9 @@
-package com.imandroid.financemanagement.data.cash;
+package com.imandroid.financemanagement.data.sharedPref;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
 public class SharedPrefHelper {
-
-    private static final String DAILY_BUDGET = "DAILY_BUDGET";
-    private static final String WEEKLY_BUDGET = "WEEKLY_BUDGET";
-    private static final String MONTHLY_BUDGET = "MONTHLY_BUDGET";
 
     private static SharedPreferences sharedPreferences;
     private static SharedPreferences.Editor editor;
@@ -36,8 +32,12 @@ public class SharedPrefHelper {
     public  boolean read(String key, boolean defValue) {
         return sharedPreferences.getBoolean(key, defValue);
     }
-    public  Integer read(String key, int defValue) {
+    public  int read(String key, int defValue) {
         return sharedPreferences.getInt(key, defValue);
+    }
+
+    public float read(String key, float defValue) {
+        return sharedPreferences.getFloat(key, defValue);
     }
 
     public  void write(String key, String value) {
@@ -48,8 +48,12 @@ public class SharedPrefHelper {
         editor.putBoolean(key, value).apply();
     }
 
-    public  void write(String key, Integer value) {
+    public  void write(String key, int value) {
         editor.putInt(key, value).apply();
+    }
+
+    public  void write(String key, float value) {
+        editor.putFloat(key, value).apply();
     }
 
     public  void remove(String key){

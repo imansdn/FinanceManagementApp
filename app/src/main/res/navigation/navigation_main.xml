@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.imandroid.financemanagement.screen.dashboard.DashboardFragment"
+        android:label="dashboard_fragment"
+        tools:layout="@layout/dashboard_fragment" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_addExpensesFragment"
+            app:destination="@id/addExpensesFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_reportListFragment"
+            app:destination="@id/reportListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addExpensesFragment"
+        android:name="com.imandroid.financemanagement.screen.addExpense.AddExpensesFragment"
+        android:label="add_expenses_fragment"
+        tools:layout="@layout/add_expenses_fragment" >
+        <action
+            android:id="@+id/action_addExpensesFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reportListFragment"
+        android:name="com.imandroid.financemanagement.screen.reportList.ReportListFragment"
+        android:label="add_expenses_fragment"
+        tools:layout="@layout/report_list_fragment" >
+
+    </fragment>
+</navigation>

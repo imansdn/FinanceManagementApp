@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/back_black"
     tools:context=".screen.dashboard.DashboardFragment">
 
 
@@ -21,30 +22,33 @@
 
         <Button
             android:id="@+id/btn_daily"
+            style="@style/ToggleHeaderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
-            android:text="Daily"
-            android:textSize="15dp" />
+            android:text="@string/daily"
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/btn_weekly"
             android:layout_width="wrap_content"
+            style="@style/ToggleHeaderText"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
-            android:text="Weekly"
-            android:textSize="15dp" />
+            android:text="@string/weekly"
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/btn_monthly"
+            style="@style/ToggleHeaderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
-            android:text="Monthly"
-            android:textSize="15dp" />
+            android:text="@string/monthly"
+            android:textSize="15sp" />
 
     </LinearLayout>
 
@@ -74,11 +78,8 @@
         android:id="@+id/btn_new_record"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Add Expense"
+        android:background="@drawable/selector_button"
+        android:text="@string/add_expense"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

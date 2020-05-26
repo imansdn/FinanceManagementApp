@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/back_black"
     tools:context=".screen.addExpense.AddExpensesFragment">
 
 
@@ -11,17 +12,19 @@
         android:id="@+id/imageView4"
         android:layout_width="0dp"
         android:layout_height="200dp"
+        android:contentDescription="@string/back_add_exp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/back_expenditure" />
 
     <Button
         android:id="@+id/btn_confirm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Confirm"
+        android:background="@drawable/selector_button"
+        android:text="@string/confirm"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +37,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="24dp"
-        android:text="Expenditure:"
+        android:text="@string/expenditure"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +51,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
-        android:text="Description:"
+        android:text="@string/description"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +65,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="24dp"
-        android:text="Category:"
+        android:text="@string/category_which_category_does_this_expense_belong_to"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,10 +82,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
+        android:hint="@string/how_much_did_you_spend"
         android:inputType="number|textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/colorAccent_darker2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/edt_desc"
@@ -91,10 +101,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
+        android:hint="@string/what_did_you_pay_for"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/colorAccent_darker2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        android:autofillHints="" />
 
     <RadioGroup
         android:id="@+id/radio_group_cat"
@@ -110,43 +124,53 @@
             android:id="@+id/radio_food"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
+            android:layout_marginLeft="14dp"
             android:layout_weight="1"
             android:checked="true"
-            android:drawableRight="@drawable/ic_access_time_black_24dp"
-            android:gravity="center" />
+            android:drawableRight="@drawable/ic_food"
+            android:gravity="center"
+            android:layout_marginStart="14dp"
+            android:drawableEnd="@drawable/ic_food" />
 
         <RadioButton
             android:id="@+id/radio_transport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
+            android:layout_marginLeft="14dp"
             android:layout_weight="1"
-            android:drawableRight="@drawable/ic_access_time_black_24dp" />
+            android:drawableRight="@drawable/ic_transport"
+            android:layout_marginStart="14dp"
+            android:drawableEnd="@drawable/ic_transport" />
 
         <RadioButton
             android:id="@+id/radio_subscript"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
+            android:layout_marginLeft="14dp"
             android:layout_weight="1"
-            android:drawableRight="@drawable/ic_access_time_black_24dp" />
+            android:drawableRight="@drawable/ic_subscription"
+            android:layout_marginStart="14dp"
+            android:drawableEnd="@drawable/ic_subscription" />
 
         <RadioButton
             android:id="@+id/radio_entertian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
+            android:layout_marginLeft="14dp"
             android:layout_weight="1"
-            android:drawableRight="@drawable/ic_access_time_black_24dp" />
+            android:drawableRight="@drawable/ic_entertainment"
+            android:layout_marginStart="14dp"
+            android:drawableEnd="@drawable/ic_entertainment" />
 
         <RadioButton
             android:id="@+id/radio_other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
+            android:layout_marginLeft="14dp"
             android:layout_weight="1"
-            android:drawableRight="@drawable/ic_access_time_black_24dp" />
+            android:drawableRight="@drawable/ic_other"
+            android:layout_marginStart="14dp"
+            android:drawableEnd="@drawable/ic_other" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

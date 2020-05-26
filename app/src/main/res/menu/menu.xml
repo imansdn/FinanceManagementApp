@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item android:id="@+id/menu_show_help" android:title="Show Help" app:showAsAction="never"/>
+<item android:id="@+id/menu_check_update" android:title="Check Update" app:showAsAction="never"/>
+<item android:id="@+id/menu_report_food" android:title="Food Expenses" app:showAsAction="never"/>
+<item android:id="@+id/menu_report_transport" android:title="Transport Expenses" app:showAsAction="never"/>
+<item android:id="@+id/menu_report_subs" android:title="Subscription Expenses" app:showAsAction="never"/>
+<item android:id="@+id/menu_report_entertain" android:title="Entertainment Expenses" app:showAsAction="never" />
+<item android:id="@+id/menu_report_other" android:title="Other Expenses" app:showAsAction="never"/>
+</menu>

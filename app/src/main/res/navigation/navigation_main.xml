@@ -33,5 +33,8 @@
         android:label="add_expenses_fragment"
         tools:layout="@layout/report_list_fragment" >
 
+        <argument
+            android:name="category"
+            app:argType="string" />
     </fragment>
 </navigation>

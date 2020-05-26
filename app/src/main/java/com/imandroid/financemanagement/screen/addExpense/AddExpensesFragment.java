@@ -24,6 +24,7 @@ import android.widget.RadioGroup;
 import com.imandroid.financemanagement.R;
 import com.imandroid.financemanagement.data.GeneralRepository;
 
+import com.imandroid.financemanagement.screen.MainActivity;
 import com.imandroid.financemanagement.util.Constant;
 
 import butterknife.BindView;
@@ -41,8 +42,8 @@ public class AddExpensesFragment extends Fragment {
     EditText edt_cost;
     @BindView(R.id.btn_confirm)
     Button btn_confirm;
-    String category= Constant.EXPENDITURE_CATEGORIES.Food.name();
-    View view;
+    private String category= Constant.EXPENDITURE_CATEGORIES.Food.name();
+    private View view;
     public static AddExpensesFragment newInstance() {
         return new AddExpensesFragment();
     }
@@ -52,9 +53,21 @@ public class AddExpensesFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.add_expenses_fragment, container, false);
         ButterKnife.bind(this,view);
+        setHasOptionsMenu(true);
+        btn_confirm.setEnabled(false);
 
+        if ((getActivity())!=null && ((MainActivity)getActivity()).getSupportActionBar()!=null){
+            ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            ((MainActivity)getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         return view;
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (getActivity()!=null)
+        getActivity().setTitle(getString(R.string.new_expense));
     }
 
     @Override
@@ -133,8 +146,10 @@ public class AddExpensesFragment extends Fragment {
 
     }
 
+
     @OnClick(R.id.btn_confirm)
     void addExpense(){
+
         mViewModel.addExpense(edt_cost.getText().toString(),
                 edt_desc.getText().toString(),category);
        NavDirections action = AddExpensesFragmentDirections.actionAddExpensesFragmentToDashboardFragment();

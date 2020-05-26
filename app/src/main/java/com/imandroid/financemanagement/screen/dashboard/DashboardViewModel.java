@@ -1,13 +1,13 @@
 package com.imandroid.financemanagement.screen.dashboard;
 
+
 import androidx.lifecycle.ViewModel;
 
 import com.imandroid.financemanagement.data.GeneralRepository;
 import com.imandroid.financemanagement.util.Constant;
-
+import java.math.RoundingMode;
 import java.text.NumberFormat;
 
-import timber.log.Timber;
 
 public class DashboardViewModel extends ViewModel {
     private GeneralRepository repository;
@@ -17,14 +17,12 @@ public class DashboardViewModel extends ViewModel {
     private float subExp;
     private float othersExp;
     private float remainderBudget;
-    int DEFAULT_TIME_PERIOD = 0;
     private NumberFormat formatter;
-
     public DashboardViewModel(GeneralRepository repository) {
         this.repository = repository;
         formatter = NumberFormat.getCurrencyInstance();
-        updateValues(DEFAULT_TIME_PERIOD);
-
+        formatter.setMinimumFractionDigits(0);
+        formatter.setRoundingMode(RoundingMode.DOWN);
     }
 
     public float getFoodExp() {
@@ -51,43 +49,19 @@ public class DashboardViewModel extends ViewModel {
         return ((float)getBudget(timePeriod) - remainderBudget) / (float) getBudget(timePeriod) * 360f;
     }
 
-    public void updateValues(int timePeriod) {
-        foodExp = repository.getTotalExpenses(Constant.EXPENDITURE_CATEGORIES.Food.name(), timePeriod);
+    public void updateValue(int timePeriod) {
 
+        foodExp = repository.getTotalExpenses(Constant.EXPENDITURE_CATEGORIES.Food.name(), timePeriod);
         transportExp = repository.getTotalExpenses(Constant.EXPENDITURE_CATEGORIES.Transport.name(), timePeriod);
         entertainmentExp = repository.getTotalExpenses(Constant.EXPENDITURE_CATEGORIES.Entertainment.name(), timePeriod);
         subExp = repository.getTotalExpenses(Constant.EXPENDITURE_CATEGORIES.Subscription.name(), timePeriod);
         othersExp = repository.getTotalExpenses(Constant.EXPENDITURE_CATEGORIES.Others.name(), timePeriod);
         remainderBudget = (float) repository.getBudget(Constant.TIME_PERIOD.values()[timePeriod].name()) - foodExp - transportExp - entertainmentExp - subExp - othersExp;
-        Timber.i("remainderBudget -->"+remainderBudget);
-
-//        remainderBudget = (MutableLiveData<Float>) Transformations.map(foodExp, foodExp -> {
-//                final float[] remind = {0f};
-//
-//                if (foodExp!=null){
-//                    remind[0] = repository.getBudget(timePeriod)-foodExp;
-//                    Transformations.map(transportExp, transportExp -> {
-//                        remind[0] = remind[0] -transportExp;
-//                        Transformations.map(subExp, subExp -> {
-//                            remind[0] = remind[0] -subExp;
-//                            Transformations.map(othersExp, othersExp -> {
-//                                remind[0] = remind[0] -othersExp;
-//
-//                                return remind[0];
-//                            });
-//                            return remind[0];
-//                        });
-//                        return remind[0];
-//                    });
-//                    return remind[0];
-//                }
-//                return repository.getBudget(timePeriod);
-//
-//            });
 
 
-//        budget = repository.getBudgetGoal(timePeriod);
     }
+
+
 
     public float getRemainderBudget() {
         return remainderBudget;
@@ -104,6 +78,19 @@ public class DashboardViewModel extends ViewModel {
 
 
     public CharSequence getBalanceText() {
-        return "BALANCE: " + formatter.format(remainderBudget);
+        return "BALANCE:\n" + formatter.format(remainderBudget);
+    }
+
+    public String formatFloatToString(final float f)
+    {
+        final int i=(int)f;
+        if(f==i)
+            return Integer.toString(i);
+        return Float.toString(f);
+    }
+
+    public boolean isTheFirstRun() {
+
+        return repository.isTheFirstRun();
     }
 }

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1038377474361",
+    "firebase_url": "https://financemanagement-7fad4.firebaseio.com",
+    "project_id": "financemanagement-7fad4",
+    "storage_bucket": "financemanagement-7fad4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038377474361:android:bc5c4a3dff630a571470e8",
+        "android_client_info": {
+          "package_name": "com.imandroid.financemanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1038377474361-gtl1o7i9pf625kdjufo4894ff6hfcf03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC7YjkdcHnzQj3WPWlB_6IZt_NYpok0DA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1038377474361-gtl1o7i9pf625kdjufo4894ff6hfcf03.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

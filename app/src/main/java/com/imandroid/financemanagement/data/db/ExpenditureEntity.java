@@ -26,6 +26,7 @@ public class ExpenditureEntity {
         this.date = date;
     }
 
+
     public Integer getId() {
         return id;
     }

@@ -1,10 +1,8 @@
 package com.imandroid.financemanagement.data;
 
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Context;
 import androidx.lifecycle.LiveData;
-
-import com.imandroid.financemanagement.FinanceManagement;
 import com.imandroid.financemanagement.data.sharedPref.SharedPrefHelper;
 import com.imandroid.financemanagement.data.db.DatabaseGenerator;
 import com.imandroid.financemanagement.data.db.ExpenditureDao;
@@ -12,8 +10,6 @@ import com.imandroid.financemanagement.data.db.ExpenditureEntity;
 import com.imandroid.financemanagement.util.Constant;
 
 import java.util.List;
-
-import timber.log.Timber;
 
 public class GeneralRepository {
 
@@ -23,7 +19,7 @@ public class GeneralRepository {
     private static final Object lock = new Object();
     private ExpenditureDao expenditureDao ;
     private SharedPrefHelper sharedPrefHelper;
-    public static GeneralRepository getInstance(AppCompatActivity appCompatActivity) {
+    public static GeneralRepository getInstance(Context appCompatActivity) {
         GeneralRepository instance = INSTANCE;
         synchronized(lock) {
             if (INSTANCE == null){
@@ -35,7 +31,7 @@ public class GeneralRepository {
         return instance;
     }
 
-    private GeneralRepository(AppCompatActivity appCompatActivity) {
+    private GeneralRepository(Context appCompatActivity) {
         this.expenditureDao = DatabaseGenerator.getInstance(appCompatActivity).expenditureDao();
         this.sharedPrefHelper = SharedPrefHelper.getInstance(appCompatActivity);
     }
@@ -43,23 +39,45 @@ public class GeneralRepository {
     public LiveData<List<ExpenditureEntity>> getAllExpenditure(){
         return expenditureDao.getAllExp();
     }
+
+    public LiveData<List<ExpenditureEntity>> getExpendituresByCategory(String category){
+        return expenditureDao.getExpByCategory(category);
+    }
+
     public LiveData<ExpenditureEntity> getExpenditureById(int id){
         return expenditureDao.getExpById(id);
     }
 
     public void addExpenditure(ExpenditureEntity expenditureEntity){
-        expenditureDao.addExp(expenditureEntity);
+        Thread thread = new Thread(() -> expenditureDao.addExp(expenditureEntity));
+        thread.start();
     }
 
     public void updateExpenditure(ExpenditureEntity expenditureEntity){
-        expenditureDao.updateExp(expenditureEntity);
+        Thread thread = new Thread(() -> expenditureDao.updateExp(expenditureEntity));
+        thread.start();
     }
 
     public void deleteExpenditure(ExpenditureEntity expenditureEntity){
-        expenditureDao.deleteExp(expenditureEntity);
+        Thread thread = new Thread(() -> expenditureDao.deleteExp(expenditureEntity));
+        thread.start();
     }
     public void deleteAllExpenditure(){
         expenditureDao.deleteAllExp();
+    }
+
+
+    public int getExpCountForDay(String category){
+
+        return expenditureDao.getCategoryExpCountForDay(category);
+    }
+
+    public int getExpCountForWeek(String category){
+        return expenditureDao.getCategoryExpCountForWeek(category);
+    }
+
+    public int getExpCountForMonth(String category){
+        return expenditureDao.getCategoryExpCountForMonth(category);
     }
 
     public float getSumExpForDay(String category){
@@ -69,7 +87,7 @@ public class GeneralRepository {
         return expenditureDao.getExpSumByCategoryForWeek(category);
     }
     public float getSumExpForMonth(String category){
-        return expenditureDao.getExpSumByCategoryForMonth(category);
+   return expenditureDao.getExpSumByCategoryForMonth(category);
     }
 
     public float getTotalExpenses(String category,int timePeriod){
@@ -85,7 +103,7 @@ public class GeneralRepository {
             return getSumExpForMonth(category);
 
         }else {
-            return 0.0f;
+            return 0f;
         }
 
 
@@ -102,7 +120,11 @@ public class GeneralRepository {
     }
 
 
-
-
-
+    public boolean isTheFirstRun() {
+        if (!sharedPrefHelper.read(Constant.FIRST_RUN_KEY,false)){
+            sharedPrefHelper.write(Constant.FIRST_RUN_KEY,true);
+            return true;
+        }
+        return false;
+    }
 }

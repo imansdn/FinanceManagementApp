@@ -24,10 +24,20 @@ public class SharedPrefHelper {
         return instance;
     }
 
+    public void setOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener){
+        sharedPreferences.registerOnSharedPreferenceChangeListener(listener);
+    }
+
+    public void unRegisterSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener listener){
+        sharedPreferences.unregisterOnSharedPreferenceChangeListener(listener);
+    }
+
 
     public  String read(String key, String defValue) {
         return sharedPreferences.getString(key, defValue);
     }
+
+
 
     public  boolean read(String key, boolean defValue) {
         return sharedPreferences.getBoolean(key, defValue);

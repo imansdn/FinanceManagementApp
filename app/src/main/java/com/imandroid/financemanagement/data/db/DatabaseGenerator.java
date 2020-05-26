@@ -10,7 +10,7 @@ import androidx.room.RoomDatabase;
 
 @Database(entities = {ExpenditureEntity.class}, version = DatabaseGenerator.DATABASE_VERSION, exportSchema = false)
 public abstract class DatabaseGenerator extends RoomDatabase {
-    static final int DATABASE_VERSION = 1;
+    static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "finance_db";
 
     private  static volatile DatabaseGenerator INSTANCE = null;

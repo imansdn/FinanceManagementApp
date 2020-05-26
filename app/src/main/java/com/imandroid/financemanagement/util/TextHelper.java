@@ -1,8 +1,10 @@
 package com.imandroid.financemanagement.util;
 
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class TextHelper {
@@ -28,4 +30,10 @@ public class TextHelper {
         }
         return resultDate;
     }
+
+    public static String checkRecordsPlural(int expCount, int exp) {
+
+        return expCount == 1 ? exp + " (" + expCount + " record)" : exp + " (" + expCount + " records)";
+    }
+
 }

@@ -1,5 +1,5 @@
 # FinanceManagementApp
-The Final project of Udacity NanoDegree Program
+The Final project of Udacity NanoDegree Program which is well-known as Capstone project.
 # Description 
 Finance Management makes managing personal finances as easy as pie! Now easily record your personal and business financial transactions, generate spending reports, review your daily, weekly and monthly financial data and manage your assets with Finance Management 's spending tracker and budget planner.
   
@@ -24,9 +24,8 @@ All people who want to track of their finance and manage the expenses .
 
 # Key Considerations
 
-- Seperate the layers as data view and util amd implement the repository pattern as much as possible
-- MVVM arcitecture
+- Separate the layers as data view and util amd implement the repository pattern as much as possible
+- MVVM architecture
 - Handling the data persistence with Room ORM
 - NavigationView and single Activity pattern
 
-#
